@@ -1,0 +1,29 @@
+{
+  "script": "discover_compose.py",
+  "command": "python -u discover_compose.py  (D4 hidden; order-8 candidates; seeds=10)",
+  "raw_log": "revalidation/discover_compose.log",
+  "tables": {
+    "discovery_under_noise": [
+      {"eps": 0.00, "sel_correct": 7, "seeds": 10, "wilson95": [0.40, 0.89], "rel_id_acc": 0.70, "committed_noncomm_h1": [0.804, 0.598, 0.944]},
+      {"eps": 0.10, "sel_correct": 6, "seeds": 10, "wilson95": [0.31, 0.83], "rel_id_acc": 0.60, "committed_noncomm_h1": [0.733, 0.528, 0.937]},
+      {"eps": 0.20, "sel_correct": 6, "seeds": 10, "wilson95": [0.31, 0.83], "rel_id_acc": 0.60, "committed_noncomm_h1": [0.740, 0.536, 0.934]},
+      {"eps": 0.30, "sel_correct": 6, "seeds": 10, "wilson95": [0.31, 0.83], "rel_id_acc": 0.60, "committed_noncomm_h1": [0.731, 0.512, 0.935]}
+    ],
+    "long_horizon_rollout": {
+      "horizons": [1, 5, 10, 40, 100, 200],
+      "SYMBOLIC oracle (true D4)": [1.00, 1.00, 1.00, 1.00, 1.00, 1.00],
+      "SYMBOLIC committed-to-DISCOVERED": [0.85, 0.78, 0.78, 0.78, 0.77, 0.78],
+      "SYMBOLIC wrong (C8)": [0.52, 0.27, 0.26, 0.25, 0.26, 0.24],
+      "PreNat (learned, gradient)": [0.98, 0.62, 0.54, 0.48, 0.47, 0.38],
+      "RESCAL (free, learned)": [0.98, 0.90, 0.82, 0.64, 0.57, 0.56],
+      "h200_ci": {
+        "SYMBOLIC-oracle": [1.000, 1.000, 1.000],
+        "SYMBOLIC-discovered": [0.776, 0.551, 0.926],
+        "PreNat-learned": [0.381, 0.122, 0.647],
+        "RESCAL": [0.561, 0.297, 0.825]
+      },
+      "paired_discovered_vs_wrong_h200": {"d": 0.536, "p": 0.0074}
+    }
+  },
+  "verdict": "MATCH — 7/10 [0.40,0.89] clean, 6/10 under 30% corruption, committed 0.73-0.80; h=200 discovered 0.776 [0.551,0.926] vs wrong-C8 0.24, p=0.0074. Exact reproduction of the documented values."
+}

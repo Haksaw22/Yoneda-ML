@@ -1,0 +1,12 @@
+codelock_transfer.py:70: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\generated\python_variable_methods.cpp:823.)
+  f"(assoc resid {float(src_model.assoc_loss()):.1e})\n")
+Source algebra learned on full data: NONCOMM H@1 = 0.980 (assoc resid 2.9e-04)
+
+AMORTIZED TRANSFER on S4 KG (NONCOMM path H@1)  seeds=3
+  frac   | oracle (fixed) |   scratch    | transfer (frozen)
+  --------------------------------------------------------
+  0.50   | 0.515+/-0.10    | 0.131+/-0.01 | 0.129+/-0.03
+  0.30   | 0.091+/-0.01    | 0.079+/-0.01 | 0.089+/-0.01
+
+  If transfer(frozen) >> scratch and nears oracle, the algebra is AMORTISABLE: learn it once on abundant data, freeze, and lock on cheaply at low data -- the practical crack for the blocker.

@@ -1,0 +1,15 @@
+MICROSCOPE AS A PREDICTIVE INSTRUMENT (real KGs)
+
+  dataset   | func  inv   nonab  | algebraicity | soft-alg: free->alg path MRR | benefit
+  --------------------------------------------------------------------------------------------
+kg_real.py:100: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  h = torch.tensor(queries[:, 0]); r1 = torch.tensor(queries[:, 1])
+kg_real.py:101: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = torch.tensor(queries[:, 2]); t = torch.tensor(queries[:, 3])
+  Nations   | 3.38 0.09   0.86 |     0.67     | 0.865 -> 0.833                  | -0.032
+  Kinship   | 5.06 0.12   0.88 |     0.59     | 0.859 -> 0.852                  | -0.007
+  UMLS      | 6.44 0.11   0.86 |     0.60     | 0.880 -> 0.837                  | -0.043
+
+  datasets by ascending algebraicity: ['Kinship', 'UMLS', 'Nations']
+  their algebraic benefits (alg-free):  [-0.007, -0.043, -0.032]
+  If benefit rises with algebraicity, the cheap microscope profile PREDICTS whether the algebraic prior helps -- the instrument's payoff. (Kinship, whose relations compose, should profile MORE algebraic than UMLS.)

@@ -1,0 +1,23 @@
+SOFT ASSOCIATIVITY -- one knob (residual penalty) from RESCAL (0) to PreNat (large)
+
+  S4 group KG  (NONCOMM path H@1 ; algebraicity = mean per-relation):
+    resid_l2  |  path H@1  | algebraicity
+    0.00      |   0.760    |     0.23    
+    0.01      |   0.764    |     0.85    
+    0.10      |   0.764    |     1.00    
+    1.00      |   0.765    |     1.00    
+    10.00     |   0.761    |     1.00    
+
+  UMLS real KG  (atomic MRR / path MRR ; algebraicity = mean per-relation):
+    resid_l2  | atomic MRR  | path MRR  | algebraicity
+kg_real.py:100: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  h = torch.tensor(queries[:, 0]); r1 = torch.tensor(queries[:, 1])
+kg_real.py:101: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = torch.tensor(queries[:, 2]); t = torch.tensor(queries[:, 3])
+    0.00      |    0.869    |   0.876   |     0.03    
+    0.01      |    0.870    |   0.876   |     0.05    
+    0.10      |    0.871    |   0.878   |     0.14    
+    1.00      |    0.889    |   0.862   |     0.75    
+    10.00     |    0.877    |   0.838   |     0.99    
+
+  On S4 the penalty barely matters (data is algebraic; D_r stays ~0, algebraicity~1). On UMLS, RELAXING the penalty recovers path composition toward RESCAL-level while algebraicity drops -- one model adapts to how algebraic the domain is, fixing the earlier real-KG composition loss.

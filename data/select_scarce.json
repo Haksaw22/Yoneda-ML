@@ -1,0 +1,21 @@
+{
+  "script": "revalidation/select_scarce.py",
+  "preregistration": "revalidation/PROBE-PREREG.md",
+  "raw_log": "revalidation/select_scarce.log",
+  "seeds": 10, "steps": 2500, "lr": 0.02,
+  "rows": [
+    {"group": "D4", "frac": 1.0, "correct": 8, "wilson95": [0.49, 0.94], "margin_vs": "C4xC2", "margin_d": 0.072, "margin_p": 0.0127, "test_selected": [0.866, 0.739, 0.977], "test_oracle": [0.919, 0.851, 0.978], "test_learned_random": [1.000, 1.000, 1.000]},
+    {"group": "D4", "frac": 0.5, "correct": 3, "wilson95": [0.11, 0.60], "margin_vs": "C4xC2", "margin_d": 0.019, "margin_p": 0.7367, "test_selected": [0.605, 0.447, 0.778], "test_oracle": [0.561, 0.389, 0.753], "test_learned_random": [0.642, 0.440, 0.845]},
+    {"group": "D4", "frac": 0.3, "correct": 1, "wilson95": [0.02, 0.40], "margin_vs": "C2x2x2", "margin_d": -0.040, "margin_p": 0.0338, "test_selected": [0.283, 0.227, 0.349], "test_oracle": [0.207, 0.166, 0.249], "test_learned_random": [0.219, 0.191, 0.246]},
+    {"group": "Q8", "frac": 1.0, "correct": 10, "wilson95": [0.72, 1.00], "margin_vs": "C8", "margin_d": 0.132, "margin_p": 0.0021, "test_selected": [1.000, 1.000, 1.000], "test_oracle": [1.000, 1.000, 1.000], "test_learned_random": [1.000, 1.000, 1.000]},
+    {"group": "Q8", "frac": 0.5, "correct": 9, "wilson95": [0.60, 0.98], "margin_vs": "C4xC2", "margin_d": 0.238, "margin_p": 0.0021, "test_selected": [0.862, 0.733, 0.973], "test_oracle": [0.872, 0.753, 0.973], "test_learned_random": [0.498, 0.338, 0.688]},
+    {"group": "Q8", "frac": 0.3, "correct": 4, "wilson95": [0.17, 0.69], "margin_vs": "C2x2x2", "margin_d": 0.102, "margin_p": 0.1179, "test_selected": [0.446, 0.329, 0.583], "test_oracle": [0.409, 0.269, 0.565], "test_learned_random": [0.188, 0.166, 0.215]}
+  ],
+  "outcome_vs_preregistration": {
+    "full_data_anchors": "reproduce rigor section D exactly (D4 8/10, Q8 10/10)",
+    "prediction_1_selection_survives_at_0.5": "HALF-WRONG: holds on Q8 (9/10, p=0.0021, selected 0.862 vs oracle 0.872, learned collapses 0.498 — the exact informative frontier); fails on D4 (3/10, margin p=0.74)",
+    "prediction_2_degrades_at_0.3": "CORRECT on both (D4 1/10, Q8 4/10; chance=2/10); D4 margin significantly NEGATIVE (p=0.034) — validation prefers a wrong abelian group",
+    "kill_criterion": "NOT met (requires both groups failing at 0.5; Q8 passes)",
+    "conclusion": "The recipe's select branch is group-dependent at scarcity: it works at moderate scarcity when the algebra's compositional signature is distinctive (Q8), fails when candidates are hard to distinguish (D4), and degrades to chance by 30% data on both. 'Fix' is the only branch that never depends on the data being able to identify the structure."
+  }
+}

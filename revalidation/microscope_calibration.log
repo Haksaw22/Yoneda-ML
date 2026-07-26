@@ -1,0 +1,20 @@
+MICROSCOPE CALIBRATION  base=D4  seeds=5  cheap=400step full=3000step
+
+  Cheap profile (no/low training) predicting the expensive held-out prior-benefit.
+
+  eta   | functionality | invertibility |  cheap algebraicity  |  PRIOR-BENEFIT (test) 
+  --------------------------------------------------------------------------------------
+  0.00  |     1.00      |     1.00      | 1.448 [1.279,1.613]  |  0.333 [0.258,0.400]  
+  0.10  |     1.00      |     0.97      | 1.363 [1.093,1.591]  |  0.319 [0.233,0.400]  
+  0.25  |     1.00      |     0.80      | 1.102 [0.969,1.240]  |  0.087 [0.003,0.170]  
+  0.50  |     1.00      |     0.62      | 0.797 [0.693,0.948]  | -0.093 [-0.130,-0.026]
+  0.75  |     1.00      |     0.65      | 0.728 [0.693,0.768]  | -0.117 [-0.138,-0.090]
+  1.00  |     1.00      |     0.47      | 0.767 [0.718,0.808]  | -0.141 [-0.173,-0.109]
+
+  Spearman(cheap algebraicity, held-out prior-benefit) = 0.93  [95% CI 0.80,0.97]  over 30 worlds
+  Sign agreement (algebraicity>1  <=>  prior helps): 97%
+  Leave-one-eta-out held-out sign-prediction accuracy (learned threshold): 97%
+
+  READING: if the correlation is high and R^2 positive, a cheap profiling run forecasts
+  whether the algebraic prior will help on a new dataset -- the instrument's payoff,
+  demonstrated across a controlled algebraic->messy spectrum rather than 3 clustered points.

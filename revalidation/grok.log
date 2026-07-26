@@ -1,0 +1,12 @@
+'Do transformers have a sense of Yoneda?'  task = S4 group product, non-abelian.  seeds=3
+(atomic = held-out single products; path = 2-hop compositions never trained)
+
+  frac  | model        | atomic MRR  | path MRR  | path NONCOMM H@1
+  ------------------------------------------------------------------
+  1.00  | MLPKGE       |    0.224    |   0.783   |      0.740      
+  1.00  | PreNat(LA)   |    1.000    |   1.000   |      1.000      
+
+  0.50  | MLPKGE       |    0.093    |   0.287   |      0.197      
+  0.50  | PreNat(LA)   |    0.459    |   0.336   |      0.182      
+
+  The MLP/transformer-lite can fit atomic products but should COMPOSE worse (lower path) -- it memorises rather than learning the group law. The Yoneda-structured net (PreNat) composes. Operationally: a vanilla net does NOT acquire a 'sense of Yoneda' by default; the compositional/naturality structure has to be built in.

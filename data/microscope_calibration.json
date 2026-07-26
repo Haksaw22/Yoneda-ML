@@ -1,0 +1,80 @@
+{
+  "script": "microscope_calibration.py",
+  "command": "python -u microscope_calibration.py",
+  "wall_minutes": 19.0,
+  "tables": {
+    "header": "MICROSCOPE CALIBRATION  base=D4  seeds=5  cheap=400step full=3000step",
+    "per_eta": [
+      {
+        "eta": 0.00,
+        "functionality": 1.00,
+        "invertibility": 1.00,
+        "cheap_algebraicity": 1.448,
+        "cheap_algebraicity_ci": [1.279, 1.613],
+        "prior_benefit_test": 0.333,
+        "prior_benefit_ci": [0.258, 0.400]
+      },
+      {
+        "eta": 0.10,
+        "functionality": 1.00,
+        "invertibility": 0.97,
+        "cheap_algebraicity": 1.363,
+        "cheap_algebraicity_ci": [1.093, 1.591],
+        "prior_benefit_test": 0.319,
+        "prior_benefit_ci": [0.233, 0.400]
+      },
+      {
+        "eta": 0.25,
+        "functionality": 1.00,
+        "invertibility": 0.80,
+        "cheap_algebraicity": 1.102,
+        "cheap_algebraicity_ci": [0.969, 1.240],
+        "prior_benefit_test": 0.087,
+        "prior_benefit_ci": [0.003, 0.170]
+      },
+      {
+        "eta": 0.50,
+        "functionality": 1.00,
+        "invertibility": 0.62,
+        "cheap_algebraicity": 0.797,
+        "cheap_algebraicity_ci": [0.693, 0.948],
+        "prior_benefit_test": -0.093,
+        "prior_benefit_ci": [-0.130, -0.026]
+      },
+      {
+        "eta": 0.75,
+        "functionality": 1.00,
+        "invertibility": 0.65,
+        "cheap_algebraicity": 0.728,
+        "cheap_algebraicity_ci": [0.693, 0.768],
+        "prior_benefit_test": -0.117,
+        "prior_benefit_ci": [-0.138, -0.090]
+      },
+      {
+        "eta": 1.00,
+        "functionality": 1.00,
+        "invertibility": 0.47,
+        "cheap_algebraicity": 0.767,
+        "cheap_algebraicity_ci": [0.718, 0.808],
+        "prior_benefit_test": -0.141,
+        "prior_benefit_ci": [-0.173, -0.109]
+      }
+    ],
+    "summary": [
+      {
+        "metric": "spearman_cheap_algebraicity_vs_held_out_prior_benefit",
+        "value": 0.93,
+        "ci": [0.80, 0.97],
+        "n_worlds": 30
+      },
+      {
+        "metric": "sign_agreement_algebraicity_gt1_iff_prior_helps",
+        "value_pct": 97
+      },
+      {
+        "metric": "leave_one_eta_out_held_out_sign_prediction_accuracy",
+        "value_pct": 97
+      }
+    ]
+  }
+}

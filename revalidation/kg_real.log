@@ -1,0 +1,11 @@
+UMLS: 135 entities, 46 relations, train/valid/test=5216/652/661  d=32
+2-hop composition probe: 4000 path queries (sampled from train)
+
+  model      |  MRR    H@1    H@3    H@10  | pathMRR pathH@1
+  --------------------------------------------------------------
+  TransE     | 0.756  0.572  0.926  0.977 | 0.746   0.677
+  RotatE     | 0.869  0.758  0.974  0.994 | 0.542   0.422
+  RESCAL     | 0.847  0.725  0.967  0.989 | 0.889   0.866
+  LearnedAlg | 0.877  0.781  0.964  0.988 | 0.537   0.453
+
+  (Filtered tail ranking. Honest reality check: are PreNat-style learned-algebra models competitive on a real KG, and does composition structure help on 2-hop?)

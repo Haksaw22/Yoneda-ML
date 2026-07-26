@@ -1,0 +1,32 @@
+{
+  "script": "rigor.py --sections C D",
+  "command": "python -u rigor.py --sections C D  (seeds=10 steps=2500 lr=0.02)",
+  "raw_log": "revalidation/rigor_CD.log",
+  "tables": {
+    "C_long_horizon_drift_S4_outcome_accuracy": {
+      "horizons": [1, 5, 10, 40, 100, 200],
+      "SYMBOLIC (exact, by construction)": [1.00, 1.00, 1.00, 1.00, 1.00, 1.00],
+      "TransE": [0.07, 0.04, 0.04, 0.04, 0.04, 0.04],
+      "RESCAL": [0.97, 0.75, 0.47, 0.04, 0.04, 0.04],
+      "PreNat (learned)": [1.00, 0.97, 0.94, 0.86, 0.24, 0.14],
+      "h200_ci": {
+        "PreNat (learned)": [0.139, 0.039, 0.332],
+        "RESCAL": [0.043, 0.039, 0.047],
+        "SYMBOLIC (exact, by construction)": [1.00, 1.00, 1.00]
+      }
+    },
+    "D_algebra_selection_order8": {
+      "D4": {
+        "correct": 8, "seeds": 10, "wilson95": [0.49, 0.94],
+        "val_path_mrr": {"D4": [0.956, 0.921, 0.988], "C4xC2": [0.884, 0.879, 0.889], "C8": [0.847, 0.801, 0.884], "Q8": [0.829, 0.783, 0.870], "C2x2x2": [0.791, 0.772, 0.811]},
+        "margin_true_vs_best_wrong": {"vs": "C4xC2", "d": 0.072, "p": 0.0127}
+      },
+      "Q8": {
+        "correct": 10, "seeds": 10, "wilson95": [0.72, 1.00],
+        "val_path_mrr": {"Q8": [1.000, 1.000, 1.000], "C8": [0.868, 0.852, 0.881], "C4xC2": [0.830, 0.801, 0.853], "D4": [0.811, 0.773, 0.846], "C2x2x2": [0.695, 0.676, 0.712]},
+        "margin_true_vs_best_wrong": {"vs": "C8", "d": 0.132, "p": 0.0021}
+      }
+    }
+  },
+  "verdict": "MATCH — all headline values reproduce exactly (learned h=200 0.139 [0.039,0.332] vs documented 0.14 [0.04,0.33]; D4 8/10 p=0.0127; Q8 10/10 p=0.0021)."
+}

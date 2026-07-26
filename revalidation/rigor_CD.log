@@ -1,0 +1,34 @@
+RIGOR RE-RUN  seeds=10 steps=2500 lr=0.02  sections=CD
+
+=== C. S4 Cayley long-horizon drift  (outcome accuracy, seeds=10) ===
+  Corrects the paper's '1.00 at any horizon': only the EXACT SYMBOLIC model (one-hot
+  codes + regular embedding, built by construction) is truly drift-free; the LEARNED
+  PreNat drifts at long horizon (its codes never lock exactly).
+  model                              |h=1    h=5    h=10   h=40   h=100  h=200 
+  SYMBOLIC (exact, by construction)  | 1.00  1.00  1.00  1.00  1.00  1.00 
+  TransE                             | 0.07  0.04  0.04  0.04  0.04  0.04 
+  RESCAL                             | 0.97  0.75  0.47  0.04  0.04  0.04 
+  PreNat (learned)                   | 1.00  0.97  0.94  0.86  0.24  0.14 
+  (per-horizon 95% CI at h=200):
+    PreNat-learned h200: 0.139 [0.039,0.332]   RESCAL h200: 0.043 [0.039,0.047]   SYMBOLIC h200: 1.00
+  HONEST READING: exactness/drift-freeness is a property of the SYMBOLIC algebra (a
+  hand/discovery-committed lookup), NOT of the gradient-learned model; see
+  discover_compose.py for the discovery->commit chain that earns it.
+
+=== D. Algebra selection (order-8), Wilson interval on selection probability ===
+
+  data=D4: selected correctly 8/10  -> selection prob 0.80  Wilson95 [0.49,0.94]
+    D4       non-abelian  val-path-MRR 0.956 [0.921,0.988] *TRUE*
+    C4xC2    abelian      val-path-MRR 0.884 [0.879,0.889]
+    C8       abelian      val-path-MRR 0.847 [0.801,0.884]
+    Q8       non-abelian  val-path-MRR 0.829 [0.783,0.870]
+    C2x2x2   abelian      val-path-MRR 0.791 [0.772,0.811]
+    margin true-vs-best-wrong(C4xC2): +0.072  p=0.0127
+
+  data=Q8: selected correctly 10/10  -> selection prob 1.00  Wilson95 [0.72,1.00]
+    Q8       non-abelian  val-path-MRR 1.000 [1.000,1.000] *TRUE*
+    C8       abelian      val-path-MRR 0.868 [0.852,0.881]
+    C4xC2    abelian      val-path-MRR 0.830 [0.801,0.853]
+    D4       non-abelian  val-path-MRR 0.811 [0.773,0.846]
+    C2x2x2   abelian      val-path-MRR 0.695 [0.676,0.712]
+    margin true-vs-best-wrong(C8): +0.132  p=0.0021

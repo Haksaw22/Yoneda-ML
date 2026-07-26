@@ -1,0 +1,32 @@
+{
+  "script": "rigor.py --sections A B",
+  "command": "python -u rigor.py --sections A B  (seeds=10 steps=2500 lr=0.02)",
+  "raw_log": "revalidation/rigor_AB.log",
+  "tables": {
+    "A_S4_noncomm_H1": {
+      "frac_1.0": {
+        "TransE": {"h1": 0.035, "ci": [0.026, 0.048], "comm": 0.217, "params": 768},
+        "RotatE": {"h1": 0.375, "ci": [0.339, 0.409], "comm": 0.865, "params": 672},
+        "RESCAL": {"h1": 0.825, "ci": [0.785, 0.865], "comm": 0.852, "params": 5184},
+        "PreNat": {"h1": 1.000, "ci": [1.000, 1.000], "comm": 1.000, "params": 768},
+        "paired_PreNat_RESCAL": {"d": 0.175, "p": 0.0021},
+        "rotate_abelian_signature_gap": {"d": 0.490, "p": 0.0021}
+      },
+      "frac_0.5": {
+        "TransE": {"h1": 0.030, "ci": [0.026, 0.035], "comm": 0.091},
+        "RotatE": {"h1": 0.260, "ci": [0.237, 0.283], "comm": 0.599},
+        "RESCAL": {"h1": 0.208, "ci": [0.201, 0.215], "comm": 0.269},
+        "PreNat": {"h1": 0.687, "ci": [0.542, 0.833], "comm": 0.773},
+        "paired_PreNat_RESCAL": {"d": 0.478, "p": 0.0021}
+      }
+    },
+    "B_T3_noninv_path_H1": {
+      "TransE": {"h1": 0.279, "ci": [0.240, 0.322], "params": 945},
+      "RotatE": {"h1": 0.409, "ci": [0.392, 0.427], "params": 868},
+      "RESCAL": {"h1": 0.803, "ci": [0.779, 0.826], "params": 6561},
+      "PreNat": {"h1": 0.884, "ci": [0.836, 0.929], "params": 945},
+      "paired_PreNat_RotatE": {"d": 0.475, "p": 0.0021}
+    }
+  },
+  "verdict": "MATCH — exact reproduction of every documented headline value."
+}

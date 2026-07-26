@@ -1,0 +1,8 @@
+CODE-LOCKING ATTACK on S4 KG (NONCOMM path H@1; target = fixed-algebra oracle)  seeds=3
+
+  frac   | oracle (fixed) |   baseline    |  fix-entity   |   low-rank    | code-sparsity |   combined   
+  ---------------------------------------------------------------------------------------------------------
+  0.50   | 0.515+/-0.10  | 0.131+/-0.01  | 0.070+/-0.01  | 0.059+/-0.01  | 0.126+/-0.01  | 0.045+/-0.01 
+  0.30   | 0.091+/-0.01  | 0.079+/-0.01  | 0.076+/-0.00  | 0.040+/-0.00  | 0.065+/-0.01  | 0.042+/-0.00 
+
+  Does any structural fix (esp. fix-entity, which removes the entity gauge) lift the learned algebra toward the fixed-oracle at low data, where naturality could not? That would crack the low-data code-locking blocker (and unblock LIMN prereq #1).

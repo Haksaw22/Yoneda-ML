@@ -1,0 +1,30 @@
+DISCOVER -> IDENTIFY -> COMMIT  (data=D4 hidden; order-8 candidates; seeds=10)
+
+== Discovery under observation noise ==
+  (selection of the group, then discrete relation->element identification)
+  eps   |  group sel. prob (Wilson95)  |    rel-id acc    | committed NONCOMM H@1 
+  --------------------------------------------------------------------------------
+  0.00  | 7/10 -> 0.70 [0.40,0.89]          |       0.70       |  0.804 [0.598,0.944]  
+  0.10  | 6/10 -> 0.60 [0.31,0.83]          |       0.60       |  0.733 [0.528,0.937]  
+  0.20  | 6/10 -> 0.60 [0.31,0.83]          |       0.60       |  0.740 [0.536,0.934]  
+  0.30  | 6/10 -> 0.60 [0.31,0.83]          |       0.60       |  0.731 [0.512,0.935]  
+
+== Long-horizon rollout: the committed symbolic model vs learned vs free (clean data) ==
+  arm                                | h=1    h=5    h=10   h=40   h=100  h=200 
+  ------------------------------------------------------------------------------
+  SYMBOLIC oracle (true D4)          | 1.00  1.00  1.00  1.00  1.00  1.00 
+  SYMBOLIC committed-to-DISCOVERED   | 0.85  0.78  0.78  0.78  0.77  0.78 
+  SYMBOLIC wrong (C8)                | 0.52  0.27  0.26  0.25  0.26  0.24 
+  PreNat (learned, gradient)         | 0.98  0.62  0.54  0.48  0.47  0.38 
+  RESCAL (free, learned)             | 0.98  0.90  0.82  0.64  0.57  0.56 
+
+  h=200 95% CI:  SYMBOLIC-oracle 1.000 [1.000,1.000]   SYMBOLIC-discovered 0.776 [0.551,0.926]   PreNat-learned 0.381 [0.122,0.647]   RESCAL 0.561 [0.297,0.825]
+  paired SYMBOLIC discovered-vs-wrong @h200: +0.536  p=0.0074
+  (SYMBOLIC-oracle is exactly drift-free by construction; SYMBOLIC-discovered = the
+   end-to-end pipeline, equal to oracle on the ~70-80% of seeds where discovery succeeds.)
+
+  READING: the group is DISCOVERED (selection) and the relation map IDENTIFIED, both from
+  data; the committed symbolic model is then EXACTLY drift-free at any horizon, while the
+  wrong discovery fails. The learned gradient model and the free RESCAL are regime-
+  dependent (neither is universally drift-free) -- so the only durable guarantee comes
+  from committing to the CORRECTLY DISCOVERED exact algebra. That is the earned headline.

@@ -1,0 +1,62 @@
+{
+  "script": "nat_kg",
+  "command": "python -u nat_kg.py",
+  "wall_minutes": 27.1,
+  "tables": {
+    "NONCOMM_H@1_by_data_fraction_S4_seeds10": [
+      {
+        "frac": 1.00,
+        "atomic_only": 1.000,
+        "atomic_only_ci": [0.999, 1.000],
+        "plus_naturality": 1.000,
+        "plus_naturality_ci": [1.000, 1.000],
+        "plus_robust_naturality": 1.000,
+        "plus_robust_naturality_ci": [0.999, 1.000],
+        "best_nat_vs_atomic_label": "naturality",
+        "best_nat_vs_atomic_delta": 0.000,
+        "significant_star": false
+      },
+      {
+        "frac": 0.70,
+        "atomic_only": 0.488,
+        "atomic_only_ci": [0.335, 0.661],
+        "plus_naturality": 0.458,
+        "plus_naturality_ci": [0.344, 0.607],
+        "plus_robust_naturality": 0.283,
+        "plus_robust_naturality_ci": [0.209, 0.367],
+        "best_nat_vs_atomic_label": "naturality",
+        "best_nat_vs_atomic_delta": -0.030,
+        "significant_star": false
+      },
+      {
+        "frac": 0.50,
+        "atomic_only": 0.126,
+        "atomic_only_ci": [0.110, 0.140],
+        "plus_naturality": 0.122,
+        "plus_naturality_ci": [0.105, 0.140],
+        "plus_robust_naturality": 0.080,
+        "plus_robust_naturality_ci": [0.067, 0.092],
+        "best_nat_vs_atomic_label": "naturality",
+        "best_nat_vs_atomic_delta": -0.004,
+        "significant_star": false
+      },
+      {
+        "frac": 0.30,
+        "atomic_only": 0.068,
+        "atomic_only_ci": [0.061, 0.076],
+        "plus_naturality": 0.064,
+        "plus_naturality_ci": [0.061, 0.067],
+        "plus_robust_naturality": 0.053,
+        "plus_robust_naturality_ci": [0.048, 0.059],
+        "best_nat_vs_atomic_label": "naturality",
+        "best_nat_vs_atomic_delta": -0.004,
+        "significant_star": false
+      }
+    ]
+  },
+  "notes": [
+    "No row in this run reached the '*' marker (p<0.05, paired, n=seeds) for a naturality gain over atomic-only; all deltas listed are non-positive or zero.",
+    "Script printed no explicit numeric p-values in this table format, only the '*' significance flag convention explained in its footer; none of the four rows carry a '*'.",
+    "robust-nat (robust-naturality) arm underperforms atomic-only at every fraction below 1.00, consistent with the 'robust HURTS' expectation."
+  ]
+}

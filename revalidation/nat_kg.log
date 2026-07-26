@@ -1,0 +1,14 @@
+NATURALITY-AS-A-LOSS in the KG (learned algebra), fair + rigorous  group=S4 seeds=10
+NONCOMM H@1 (tie-aware) by data fraction; naturality = train-path composition-consistency.
+
+  frac  |      atomic-only       |      +naturality       |      +robust-nat       |  best-nat vs atomic 
+  ----------------------------------------------------------------------------------------------------
+  1.00  |  1.000 [0.999,1.000]   |  1.000 [1.000,1.000]   |  1.000 [0.999,1.000]   |  naturality +0.000 
+  0.70  |  0.488 [0.335,0.661]   |  0.458 [0.344,0.607]   |  0.283 [0.209,0.367]   |  naturality -0.030 
+  0.50  |  0.126 [0.110,0.140]   |  0.122 [0.105,0.140]   |  0.080 [0.067,0.092]   |  naturality -0.004 
+  0.30  |  0.068 [0.061,0.076]   |  0.064 [0.061,0.067]   |  0.053 [0.048,0.059]   |  naturality -0.004 
+
+  (paths/seed at the listed fracs vary; naturality can only help where 2-hops are observed.)
+  HONEST READING: '*' marks a statistically significant (p<0.05, paired, n=seeds) gain from
+  naturality over atomic-only. Report the verdict as it falls -- this is the project's
+  central mechanism finally tested with rigor in its flagship setting.

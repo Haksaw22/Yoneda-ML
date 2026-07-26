@@ -1,0 +1,21 @@
+LIMN-HARD: recover an UNKNOWN universal-object dimension from NOISY cones  trials=200
+
+  Product of k in {2,3} factors, random dims; true apex dim D unknown to the method.
+  '#fit' = how many candidate apex dims FACTOR the data (existence is ambiguous: a whole
+  range [D..] fits). Accuracy = recovers the true D exactly (Wilson 95% CI).
+
+  sigma  | #fit (ambiguity) |  EXISTENCE-naive   |  Occam-smallest  |   CERTIFICATE    |  OOD-ok 
+  --------------------------------------------------------------------------------------------
+  0.00  |       4.00       |  0.00 [0.00,0.02]  | 1.00 [0.98,1.00] | 1.00 [0.98,1.00] |   100%  
+  0.05  |       4.00       |  0.00 [0.00,0.02]  | 1.00 [0.98,1.00] | 1.00 [0.98,1.00] |   100%  
+  0.10  |       4.00       |  0.00 [0.00,0.02]  | 1.00 [0.98,1.00] | 1.00 [0.98,1.00] |   100%  
+  0.20  |       4.39       |  0.00 [0.00,0.02]  | 0.61 [0.54,0.67] | 1.00 [0.98,1.00] |   100%  
+
+  READING: EXISTENCE is ambiguous (#fit > 1: many over-complete apexes factor the data),
+  so 'mint the biggest object that fits' (EXISTENCE-naive) mints a WEAK/over-complete limit
+  and fails. The CERTIFICATE (uniqueness margin = d_L-th singular value above a FIXED
+  relative threshold) recovers the true UNKNOWN dimension with no knowledge of sigma, and
+  the minted subspace factors held-out (OOD) cones. Occam-smallest also lands on D but only
+  by a tie-break; the certificate gives the PRINCIPLED reason (uniqueness of the mediator).
+  In the linear case this criterion is exactly a spectral-gap rank test -- elementary, but
+  it is the defensible kernel of 'minting by universal property', made noise-robust.

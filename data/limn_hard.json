@@ -1,0 +1,56 @@
+{
+  "script": "limn_hard.py",
+  "command": "python -u limn_hard.py",
+  "wall_minutes": 1,
+  "trials": 200,
+  "description": "Recover an unknown universal-object (apex) dimension from noisy cones. Product of k in {2,3} factors, random dims; true apex dim D unknown to the method. #fit = how many candidate apex dims factor the data (existence ambiguity: a whole range [D..] fits). Accuracy = recovers the true D exactly (Wilson 95% CI).",
+  "tables": {
+    "uniqueness_of_mediator_certificate": [
+      {
+        "sigma": 0.00,
+        "num_fit_mean": 4.00,
+        "existence_naive_acc": 0.00,
+        "existence_naive_ci": [0.00, 0.02],
+        "occam_smallest_acc": 1.00,
+        "occam_smallest_ci": [0.98, 1.00],
+        "certificate_acc": 1.00,
+        "certificate_ci": [0.98, 1.00],
+        "ood_ok_pct": 100
+      },
+      {
+        "sigma": 0.05,
+        "num_fit_mean": 4.00,
+        "existence_naive_acc": 0.00,
+        "existence_naive_ci": [0.00, 0.02],
+        "occam_smallest_acc": 1.00,
+        "occam_smallest_ci": [0.98, 1.00],
+        "certificate_acc": 1.00,
+        "certificate_ci": [0.98, 1.00],
+        "ood_ok_pct": 100
+      },
+      {
+        "sigma": 0.10,
+        "num_fit_mean": 4.00,
+        "existence_naive_acc": 0.00,
+        "existence_naive_ci": [0.00, 0.02],
+        "occam_smallest_acc": 1.00,
+        "occam_smallest_ci": [0.98, 1.00],
+        "certificate_acc": 1.00,
+        "certificate_ci": [0.98, 1.00],
+        "ood_ok_pct": 100
+      },
+      {
+        "sigma": 0.20,
+        "num_fit_mean": 4.39,
+        "existence_naive_acc": 0.00,
+        "existence_naive_ci": [0.00, 0.02],
+        "occam_smallest_acc": 0.61,
+        "occam_smallest_ci": [0.54, 0.67],
+        "certificate_acc": 1.00,
+        "certificate_ci": [0.98, 1.00],
+        "ood_ok_pct": 100
+      }
+    ]
+  },
+  "reading_note": "EXISTENCE is ambiguous (#fit > 1: many over-complete apexes factor the data), so 'mint the biggest object that fits' (EXISTENCE-naive) mints a weak/over-complete limit and fails. The CERTIFICATE (uniqueness margin = d_L-th singular value above a fixed relative threshold) recovers the true unknown dimension with no knowledge of sigma, and the minted subspace factors held-out (OOD) cones. Occam-smallest also lands on D but only by a tie-break; the certificate gives the principled reason (uniqueness of the mediator). In the linear case this criterion is exactly a spectral-gap rank test -- elementary, but it is the defensible kernel of 'minting by universal property', made noise-robust."
+}
